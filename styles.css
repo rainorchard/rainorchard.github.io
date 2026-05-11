@@ -1,22 +1,117 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+	--background_color: #000000;
+	--text-color: #ffffff;
+	--accent-1: #9fd8cb;
+	--accent-2: #f7d53c;
+	--accent-3: #ff4848;
+
+}
+
+@font-face {
+	font-family: 'Helvetica Local';
+	src: url('Fonts/helvetica/Helvetica.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Helvetica Local';
+	src: url('Fonts/helvetica/Helvetica-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Helvetica Local';
+	src: url('Fonts/helvetica/Helvetica-Oblique.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+::selection {
+	background: var(--accent-2);
+	color: var(--text-color);
 }
 
 body {
-  font-family: 'Satoshi-Variable', sans-serif;
-  font-variation-settings: 'wght' 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #000;
-  color: #fff;
+	font-family: 'Helvetica Local', Helvetica, sans-serif;
+	background: var(--background_color);
+	overflow: hidden;
 }
 
-h1 {
-  font-size: 4rem;
-  font-variation-settings: 'wght' 700;
-  letter-spacing: -0.02em;
+.header-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 64px;
+	z-index: 99;
+	pointer-events: auto;
+	background: var(--accent-1);
+}
+
+.nav-items {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	gap: 20px;
+	padding: 0 20px;
+	justify-content: flex-end;
+}
+
+.nav-item {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 14px;
+	color: var(--text-color);
+	letter-spacing: 0.5px;
+	text-decoration: none;
+}
+
+.nav-arrow {
+	height: 9px;
+	width: auto;
+}
+
+.nav-item.active .nav-arrow {
+	transform: scaleY(-1);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	padding-top: 64px;
+}
+
+.home-image {
+	position: fixed;
+	top: 64px;
+	left: 0;
+	width: 100%;
+	height: calc(100vh - 64px);
+	object-fit: cover;
+}
+
+.big-title {
+	font-size: 64px;
+	font-weight: 700;
+	color: var(--text-color);
+}
+
+.brand {
+	position: fixed;
+	top: 34px;
+	left: 10px;
+	transform: translate(0, -50%);
+	font-size: 34px;
+	font-weight: 700;
+	letter-spacing: -0.5px;
+	color: var(--text-color);
+	z-index: 100;
+	white-space: nowrap;
+	pointer-events: none;
 }
